@@ -2,7 +2,7 @@
 
 Commercial B2B sibling of [[openknowledgeformat-academy]]. Independent OKF **implementation agency**: converts companies' operational knowledge (docs, support KBs, data catalogs, wikis, agent context) into Google OKF bundles. Astro 5 + Tailwind 4 static. Goal: lead-gen for OKF implementation services (audit -> implement -> migrate -> retain).
 
-## State (2026-06-26) — BUILT, committed local `master`, NOT pushed, NOT deployed
+## State (2026-06-26) — BUILT + PUSHED (github.com/sunnyp81/openknowledgeformat-agency, public, master). NOT deployed yet.
 - 10 pages: `/` (home), `/services/`, `/okf-readiness-audit/` (entry offer), `/okf-implementation/`, `/okf-knowledge-base-migration/`, `/okf-for-ai-agents/`, `/case-study-template/`, `/pricing/`, `/contact/` (lead form), `/about/`.
 - `npm run build` green (10 pages + sitemap). JSON-LD valid: ProfessionalService (sitewide), Service+Offer (4 service pages), FAQPage, Article, BreadcrumbList. No broken links. No em/en dashes. OG PNG from svg via sharp.
 - Content by 4 parallel subagents, grounded in verified OKF spec (same facts as academy brain). Reuses academy infra (BaseLayout/MarkdownPageLayout/Header/Footer/JsonLd) with B2B slate+blue palette, header CTA button, Service-schema support.
@@ -11,7 +11,7 @@ Commercial B2B sibling of [[openknowledgeformat-academy]]. Independent OKF **imp
 Readiness Audit £1,500 fixed (entry/"show me the money") · Starter Implementation £4,000 · Migration Sprint £9,000 · Retainer £1,200/mo. All marked indicative on-site.
 
 ## NEXT (launch steps for Sunny)
-1. GitHub repo `sunnyp81/openknowledgeformat-agency` (public) + push.
+1. DONE: pushed to github.com/sunnyp81/openknowledgeformat-agency (public).
 2. CF Pages: connect repo, build `npm run build`, output `dist`, NODE_VERSION=22. Needs `.agency` domain + zone in CF.
 3. Wire contact form + home/template lead magnets (placeholder `formspree.io/f/your-form-id`; mailto `hello@openknowledgeformat.agency`) to real backend.
 4. Confirm/adjust the 4 indicative prices. Replace About founder placeholder with real details.
