@@ -1,0 +1,81 @@
+---
+import { NAV, SITE_NAME_SHORT, PRIMARY_CTA } from '../consts';
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+<header class="border-b border-line bg-paper/90 backdrop-blur sticky top-0 z-40">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="flex h-16 items-center justify-between gap-4">
+      <a href="/" class="flex items-center gap-2 font-semibold text-ink shrink-0">
+        <span
+          class="grid h-8 w-8 place-items-center rounded bg-accent text-white font-mono text-sm"
+          aria-hidden="true">{'{ }'}</span>
+        <span>{SITE_NAME_SHORT}</span>
+      </a>
+
+      <nav aria-label="Primary" class="hidden lg:block">
+        <ul class="flex items-center gap-1">
+          {NAV.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                class:list={[
+                  'rounded px-3 py-2 text-sm font-medium transition-colors hover:bg-accent-soft hover:text-accent-ink',
+                  isActive(item.href) ? 'text-accent-ink bg-accent-soft' : 'text-ink-soft',
+                ]}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <a
+        href={PRIMARY_CTA.href}
+        class="hidden lg:inline-block rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-ink">
+        {PRIMARY_CTA.label}
+      </a>
+
+      <details class="lg:hidden relative">
+        <summary
+          class="list-none cursor-pointer rounded-md border border-line px-3 py-2 text-sm font-medium text-ink-soft">Menu</summary>
+        <nav
+          aria-label="Mobile"
+          class="absolute right-0 mt-2 w-64 rounded-lg border border-line bg-paper p-2 shadow-lg">
+          <ul class="flex flex-col">
+            {NAV.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  class:list={[
+                    'block rounded px-3 py-2 text-sm font-medium hover:bg-accent-soft',
+                    isActive(item.href) ? 'text-accent-ink bg-accent-soft' : 'text-ink-soft',
+                  ]}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+            <li class="mt-1 border-t border-line pt-2">
+              <a href={PRIMARY_CTA.href} class="block rounded-md bg-accent px-3 py-2 text-center text-sm font-semibold text-white">{PRIMARY_CTA.label}</a>
+            </li>
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menu = document.querySelector('header details');
+  if (menu) {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.hasAttribute('open')) {
+        menu.removeAttribute('open');
+        menu.querySelector('summary')?.focus();
+      }
+    });
+  }
+</script>

@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const valueProps = [
+  ['Independent OKF implementation', 'A focused implementation agency for agent-readable knowledge, not a generic SEO shop.'],
+  ['Built strictly to the v0.1 spec', 'Conformant bundles, no house format, no lock-in. You own the output outright.'],
+  ['Vendor-neutral and portable', 'Plain Markdown in your own git repository. No registry, runtime, SDK, or account.'],
+  ['Honest, fixed-fee scoping', 'A fixed-fee readiness audit before any build. You see the cost before you commit.'],
+];
+
+const whoFor = [
+  ['SaaS companies', 'Growing product and developer documentation.'],
+  ['Data teams', 'Packaging data catalogs and definitions for shared use.'],
+  ['Support teams', 'Turning knowledge bases into accurate, agent-readable context.'],
+  ['AI product teams', 'Preparing curated context for the agents they ship.'],
+  ['Agencies', 'Large documentation sets across multiple clients.'],
+  ['Enterprises', 'Preparing internal knowledge for AI agents and assistants.'],
+];
+
+const process = [
+  ['Audit', 'Map your sources and prioritise what becomes OKF.'],
+  ['Pilot', 'Convert one source into a working bundle you can review.'],
+  ['Implement', 'Build the full bundle set to spec, tagged and validated.'],
+  ['Maintain', 'Keep bundles accurate as your knowledge changes.'],
+];
+
+const packages = [
+  ['OKF Readiness Audit', 'Know exactly what to convert and what it will cost, before you commit.', 'from £1,500', '/okf-readiness-audit/'],
+  ['Starter Implementation', 'Your first production OKF bundle set, built to spec and ready to use.', 'from £4,000', '/okf-implementation/'],
+  ['Migration Sprint', 'Move a large knowledge base into clean, version-controlled OKF.', 'from £9,000', '/okf-knowledge-base-migration/'],
+  ['Retainer / Maintenance', 'Keep your bundles accurate, current, and trusted over time.', 'from £1,200/mo', '/okf-for-ai-agents/'],
+];
+
+const faq = [
+  { q: 'What is the Open Knowledge Format?', a: 'OKF is an open specification (v0.1) published by Google Cloud on 12 June 2026 for packaging the metadata, context and curated knowledge AI systems need, as a directory of UTF-8 Markdown files with YAML frontmatter. The only required field is type; index.md and log.md are reserved. There is no registry, runtime, SDK or account to set up.' },
+  { q: 'Are you affiliated with Google?', a: 'No. We are an independent implementation agency. We are not affiliated with, endorsed by, or partnered with Google. We implement the open, vendor-neutral OKF specification on your behalf.' },
+  { q: 'Why would we need an agency for a Markdown-based format?', a: 'The format is simple by design, but deciding what to include, how to structure it, how to keep it accurate, and how to fit it into your systems is the hard part. We handle scoping, conversion, structure, and ongoing maintenance.' },
+  { q: 'How do we start?', a: 'Most teams start with a fixed-fee OKF readiness audit. It is a low-risk first step that tells you what to convert, in what order, and what an implementation would cost before you commit.' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<BaseLayout
+  title="Open Knowledge Format Implementation Agency"
+  description="Independent agency that converts your docs, support KBs and data catalogs into Google’s Open Knowledge Format. Book an OKF readiness audit today."
+  schemas={[faqSchema]}
+>
+  <!-- Hero -->
+  <section class="border-b border-line bg-paper-2/40">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-20">
+      <p class="inline-flex items-center gap-2 rounded-md border border-line bg-white px-3 py-1 text-xs font-semibold text-accent-ink">
+        <span class="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden="true"></span>
+        Independent OKF implementation agency
+      </p>
+      <h1 class="mt-5 max-w-3xl text-4xl sm:text-5xl font-extrabold tracking-tight text-ink text-balance">
+        We help teams convert operational knowledge into Open Knowledge Format
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg text-ink-soft">
+        We turn your docs, support KBs, data catalogs, and internal wikis into
+        clean, agent-readable OKF bundles, built to Google Cloud’s open
+        specification. Vendor-neutral, version-controlled, no lock-in.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/okf-readiness-audit/" class="rounded-md bg-accent px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-ink">Book an OKF readiness audit</a>
+        <a href="/contact/" class="rounded-md border border-line bg-white px-5 py-3 text-sm font-semibold text-ink-soft transition-colors hover:border-accent hover:text-accent">Request an implementation quote</a>
+      </div>
+      <p class="mt-6 text-xs text-muted">Not affiliated with, endorsed by, or partnered with Google.</p>
+    </div>
+  </section>
+
+  <!-- Value props -->
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-14" aria-labelledby="value-heading">
+    <h2 id="value-heading" class="sr-only">Why work with us</h2>
+    <div class="grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+      {valueProps.map(([t, d]) => (
+        <div class="bg-paper p-6">
+          <h3 class="font-semibold text-ink">{t}</h3>
+          <p class="mt-2 text-sm text-muted">{d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Who this is for -->
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-8" aria-labelledby="who-heading">
+    <h2 id="who-heading" class="text-2xl font-bold text-ink">Who this is for</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {whoFor.map(([t, d]) => (
+        <div class="rounded-lg border border-line bg-paper p-5">
+          <h3 class="font-semibold text-ink">{t}</h3>
+          <p class="mt-1 text-sm text-muted">{d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-14" aria-labelledby="process-heading">
+    <h2 id="process-heading" class="text-2xl font-bold text-ink">How we work</h2>
+    <p class="mt-2 text-ink-soft">A low-risk path from audit to ongoing maintenance.</p>
+    <ol class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {process.map(([t, d], i) => (
+        <li class="rounded-lg border border-line bg-paper p-5">
+          <span class="font-mono text-sm text-accent">0{i + 1}</span>
+          <h3 class="mt-1 font-semibold text-ink">{t}</h3>
+          <p class="mt-1 text-sm text-muted">{d}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Packages -->
+  <section class="bg-paper-2/40 border-y border-line">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-14" aria-labelledby="pkg-heading">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <h2 id="pkg-heading" class="text-2xl font-bold text-ink">Service packages</h2>
+        <a href="/pricing/" class="text-sm font-semibold text-accent hover:text-accent-ink">Compare packages and pricing &rarr;</a>
+      </div>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {packages.map(([t, d, price, href]) => (
+          <a href={href} class="group flex flex-col rounded-lg border border-line bg-paper p-5 transition-all hover:border-accent hover:shadow-sm">
+            <h3 class="font-semibold text-ink group-hover:text-accent">{t}</h3>
+            <p class="mt-2 flex-1 text-sm text-muted">{d}</p>
+            <p class="mt-4 font-mono text-sm font-semibold text-signal">{price}</p>
+          </a>
+        ))}
+      </div>
+      <p class="mt-4 text-xs text-muted">All prices are indicative starting points. Final scope is quoted after a short call.</p>
+    </div>
+  </section>
+
+  <!-- Why now -->
+  <section class="mx-auto max-w-3xl px-4 sm:px-6 py-14" aria-labelledby="why-heading">
+    <h2 id="why-heading" class="text-2xl font-bold text-ink">Why OKF, why now</h2>
+    <div class="mt-4 space-y-4 text-ink-soft">
+      <p>The Open Knowledge Format is an open specification (v0.1) published by Google Cloud on 12 June 2026. It defines a vendor-neutral way to package the metadata, context, and curated knowledge AI systems need, as a directory of UTF-8 Markdown files with YAML frontmatter. The required field is <code>type</code>; <code>index.md</code> and <code>log.md</code> are reserved.</p>
+      <p>It formalises the "LLM-wiki" pattern: curated, version-controlled, portable knowledge that agents can read without bespoke SDKs. As more teams build agents on top of internal knowledge, having that knowledge in a clean, open, portable format becomes a practical advantage. Acting early means your knowledge is ready when you need it, not scrambled together later. New to OKF? Read the basics on our sister resource, <a class="text-accent hover:text-accent-ink" href="https://openknowledgeformat.academy" rel="noopener" target="_blank">OKF Academy</a>.</p>
+    </div>
+  </section>
+
+  <!-- CTA + lead magnet -->
+  <section class="mx-auto max-w-5xl px-4 sm:px-6 pb-16">
+    <div class="rounded-xl border border-accent/20 bg-accent-soft p-8">
+      <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+        <div>
+          <h2 class="text-2xl font-bold text-ink">Convert your knowledge into a format agents can actually use</h2>
+          <p class="mt-3 text-ink-soft">Start with a fixed-fee readiness audit. It is the low-risk way to see what is possible, what it costs, and where the value is, before any build.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href="/okf-readiness-audit/" class="rounded-md bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-ink">Book an OKF readiness audit</a>
+            <a href="/contact/" class="rounded-md border border-accent bg-white px-5 py-3 text-sm font-semibold text-accent hover:bg-accent hover:text-white">Request a quote</a>
+          </div>
+        </div>
+        <div class="rounded-lg border border-line bg-white p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-accent">Free resource</p>
+          <h3 class="mt-1 font-bold text-ink">The OKF migration checklist</h3>
+          <p class="mt-2 text-sm text-muted">A practical, step-by-step list for assessing and converting your knowledge sources into a conformant OKF bundle.</p>
+          <a href="/okf-migration-checklist.md" download class="mt-4 inline-block rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white hover:bg-ink-soft">Download the checklist</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
